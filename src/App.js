@@ -16,16 +16,9 @@ class App extends React.Component {
     // ComponentDidMount is used to
     // execute the code 
     componentDidMount() {
-        fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=ad8b358b24634005a0960f277c97c482")
-// "https://jsonplaceholder.typicode.com/users")
-            .then((res) => {
-              
-              
-               
-              
+        fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=ad8b358b24634005a0960f277c97c482").then((res) => {
               return res.json()})
             .then((json) => {
-              console.log(json,"great");
                 this.setState({
                     items: json.articles,
                     DataisLoaded: true
@@ -44,22 +37,10 @@ class App extends React.Component {
              {
                 items.map((item) => ( 
 <Tile source={item} key={item} />
-
-                // <ol key = { item.id } >
-                //     User_Name: { item.source.name }, 
-                //     {/* Full_Name: { item.name }, 
-                //     User_Email: { item.email }  */}
-                //     </ol>
+                
                 ))
             }
-            {/* <Tile />
-            <Tile />
-            <Tile />
-            <Tile />
-            <Tile />
-            <Tile />
-            <Tile />
-            <Tile /> */}
+            
         </div></div>
     );
 }
