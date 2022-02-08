@@ -15,8 +15,8 @@ class App extends React.Component {
     // ComponentDidMount is used to
     // execute the code 
     componentDidMount() {
-        fetch(
-"https://jsonplaceholder.typicode.com/users")
+        fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=ad8b358b24634005a0960f277c97c482")
+// "https://jsonplaceholder.typicode.com/users")
             .then((res) => res.json())
             .then((json) => {
                 this.setState({
@@ -35,9 +35,9 @@ class App extends React.Component {
             <h1> Fetch data from an api in react </h1>  {
                 items.map((item) => ( 
                 <ol key = { item.id } >
-                    User_Name: { item.username }, 
-                    Full_Name: { item.name }, 
-                    User_Email: { item.email } 
+                    User_Name: { item.source.name }, 
+                    {/* Full_Name: { item.name }, 
+                    User_Email: { item.email }  */}
                     </ol>
                 ))
             }
