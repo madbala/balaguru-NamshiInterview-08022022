@@ -1,5 +1,6 @@
 import React from "react";
 import './App.css';
+import Tile from './components/tileComponent'
 class App extends React.Component {
    
     // Constructor 
@@ -17,10 +18,16 @@ class App extends React.Component {
     componentDidMount() {
         fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=ad8b358b24634005a0960f277c97c482")
 // "https://jsonplaceholder.typicode.com/users")
-            .then((res) => res.json())
+            .then((res) => {
+              
+              
+               
+              
+              return res.json()})
             .then((json) => {
+              console.log(json,"great");
                 this.setState({
-                    items: json,
+                    items: json.articles,
                     DataisLoaded: true
                 });
             })
@@ -31,17 +38,29 @@ class App extends React.Component {
             <h1> Pleses wait some time.... </h1> </div> ;
    
         return (
-        <div className = "App">
-            <h1> Fetch data from an api in react </h1>  {
+          <div>
+          <h1> Namshi Interview Task </h1> 
+        <div className = "tile" style={{display:"flex",flexWrap: "wrap"}}>
+             {
                 items.map((item) => ( 
-                <ol key = { item.id } >
-                    User_Name: { item.source.name }, 
-                    {/* Full_Name: { item.name }, 
-                    User_Email: { item.email }  */}
-                    </ol>
+<Tile source={item} key={item} />
+
+                // <ol key = { item.id } >
+                //     User_Name: { item.source.name }, 
+                //     {/* Full_Name: { item.name }, 
+                //     User_Email: { item.email }  */}
+                //     </ol>
                 ))
             }
-        </div>
+            {/* <Tile />
+            <Tile />
+            <Tile />
+            <Tile />
+            <Tile />
+            <Tile />
+            <Tile />
+            <Tile /> */}
+        </div></div>
     );
 }
 }
