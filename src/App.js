@@ -16,7 +16,7 @@ class App extends React.Component {
     // ComponentDidMount is used to
     // execute the code 
     componentDidMount() {
-        fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=ad8b358b24634005a0960f277c97c482").then((res) => {
+        fetch("http://newsapi.org/v2/top-headlines?country=us&apiKey=ad8b358b24634005a0960f277c97c482").then((res) => {
               return res.json()})
             .then((json) => {
                 this.setState({
@@ -39,7 +39,7 @@ class App extends React.Component {
   <option selected value="as">Australia</option>
   <option value="us">America</option>
 </select>
-        <div>
+        <div className = "tile" style={{display:"flex",flexWrap: "wrap"}}>
              {
                 items.map((item) => ( 
 <Tile source={item} key={item} />
