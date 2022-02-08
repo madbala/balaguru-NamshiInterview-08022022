@@ -33,7 +33,13 @@ class App extends React.Component {
         return (
           <div>
           <h1> Namshi Interview Task </h1> 
-        <div className = "tile" style={{display:"flex",flexWrap: "wrap"}}>
+          <select className="App-Dropdown">
+  <option value="uae">UAE</option>
+  <option value="in">India</option>
+  <option selected value="as">Australia</option>
+  <option value="us">America</option>
+</select>
+        <div>
              {
                 items.map((item) => ( 
 <Tile source={item} key={item} />
