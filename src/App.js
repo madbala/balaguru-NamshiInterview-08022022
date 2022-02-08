@@ -16,7 +16,7 @@ class App extends React.Component {
     // ComponentDidMount is used to
     // execute the code 
     componentDidMount() {
-        fetch("http://newsapi.org/v2/top-headlines?country=us&apiKey=ad8b358b24634005a0960f277c97c482").then((res) => {
+        fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=ad8b358b24634005a0960f277c97c482").then((res) => {
               return res.json()})
             .then((json) => {
                 this.setState({
